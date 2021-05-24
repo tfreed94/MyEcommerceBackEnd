@@ -73,7 +73,7 @@ router.put('/:id', (req, res) => {
 
     .then(categoryData => {
       if (!categoryData) {
-        res.status(404).json({ message: 'No Category found with that ID.' });
+        res.status(404).json({ message: 'No Category matching that ID.' });
         return;
       }
 
@@ -98,7 +98,7 @@ router.delete('/:id', (req, res) => {
 
     .then(categoryData => {
       if (!categoryData) {
-        res.status(404).json({ message: 'No Category found with that ID.' });
+        res.status(404).json({ message: 'No Category matching that ID.' });
         return;
       }
       res.json(categoryData);
