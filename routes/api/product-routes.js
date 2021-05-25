@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
     }
   )
 
-    .then(productDataDB => res.json(productDataDB))
+    .then(productData => res.json(productData))
     .catch(err => {
       res.status(500).json(err);
     });
@@ -46,7 +46,7 @@ router.get('/:id', (req, res) => {
     ]
   })
 
-    .then(productDataDB => res.json(productDataDB))
+    .then(productData => res.json(productData))
     .catch(err => {
       res.status(500).json(err);
     });
@@ -73,7 +73,7 @@ router.post('/', (req, res) => {
       res.status(200).json(product);
     })
 
-    .then((prodTagIDs) => res.status(200).json(prodTagIDs))
+    .then((productTagIds) => res.status(200).json(productTagIds))
     .catch((err) => {
       res.status(400).json(err);
     });
@@ -92,8 +92,8 @@ router.put('/:id', (req, res) => {
       return ProductTag.findAll({ where: { product_id: req.params.id } });
     })
 
-    .then((prodTags) => {
-      const prodTagIDs = prodTags.map(({ tag_id }) => tag_id);
+    .then((productTags) => {
+      const prodTagIDs = productTags.map(({ tag_id }) => tag_id);
       const newprodTags = req.body.tagIds
         .filter((tag_id) => !prodTagIDs.includes(tag_id))
         .map((tag_id) => {

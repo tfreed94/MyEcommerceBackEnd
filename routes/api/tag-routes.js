@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
       }
     }
   )
-    .then(tagDataDB => res.json(tagDataDB))
+    .then(tagData => res.json(tagData))
     .catch(err => {
       res.status(500).json(err);
     });
@@ -26,7 +26,7 @@ router.get('/:id', (req, res) => {
     }
   })
 
-    .then(tagDataDB => res.json(tagDataDB))
+    .then(tagData => res.json(tagData))
     .catch(err => {
       res.status(500).json(err);
     });
@@ -38,7 +38,7 @@ router.post('/', (req, res) => {
     tag_name: req.body.tag_name
   })
 
-    .then(tagDataDB => res.json(tagDataDB))
+    .then(tagData => res.json(tagData))
     .catch(err => {
       res.status(500).json(err);
     });
@@ -56,13 +56,13 @@ router.put('/:id', (req, res) => {
       }
     })
 
-    .then(tagDataDB => {
-      if (!tagDataDB) {
+    .then(tagData => {
+      if (!tagData) {
         res.status(404).json({ message: 'No Tag matching that ID.' });
         return;
       }
 
-      res.json(tagDataDB);
+      res.json(tagData);
     })
 
     .catch(err => {
@@ -78,13 +78,13 @@ router.delete('/:id', (req, res) => {
     }
 
   })
-    .then(tagDataDB => {
-      if (!tagDataDB) {
+    .then(tagData => {
+      if (!tagData) {
         res.status(404).json({ message: 'No Tag matching that ID.' });
         return;
       }
 
-      res.json(tagDataDB);
+      res.json(tagData);
     })
 
     .catch(err => {
