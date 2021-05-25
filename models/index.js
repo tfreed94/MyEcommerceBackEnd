@@ -9,13 +9,13 @@ Product.belongsTo(Category, { foreignKey: 'catagory_id' });
 Category.hasMany(Product, { foreignKey: 'catagory_id' });
 
 Product.belongsToMany(Tag, {
-  thorugh: {
+  through: {
     model: ProductTag, foreignKey: 'product_id'
   }
 })
 
 Tag.belongsToMany(Product, {
-  thorugh: {
+  through: {
     model: ProductTag, foreignKey: 'tag_id'
   }
 })
