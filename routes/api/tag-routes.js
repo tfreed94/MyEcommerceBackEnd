@@ -47,11 +47,11 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   Tag.update(req.body, {
-  
-      where: {
-        id: req.params.id
-      }
-    })
+
+    where: {
+      id: req.params.id
+    }
+  })
 
     .then(tagData => {
       if (!tagData) {
